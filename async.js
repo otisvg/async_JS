@@ -86,3 +86,16 @@ setTimeout(callback, 0);
 
 console.log(a);
 //What actually happened: See prediction.
+
+
+
+// 7.
+//Prediction: 20 will be logged, as 'a' is logged AFTER we change the value of 'a' to 20 within our callback function.
+var a = 10;
+
+var callback = function() {
+  a = 20;
+  console.log(a);
+};
+setTimeout(callback, 0);
+// What actually happened: See prediction.
