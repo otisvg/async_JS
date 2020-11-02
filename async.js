@@ -25,3 +25,18 @@ var callback = function() {
 };
 setTimeout(callback, 1000);
 // What actually happened: Same as before: the setTimeout() method invoked my function after a delay of 1000 milliseconds (1 second).
+
+//3.
+//Prediction: A will be 'instantly' console logged.
+//            D will be logged afterwards
+//            B will be logged 1 second after our setTimeout is executed.
+console.log('A');
+
+var callback = function() {
+  console.log('B');
+};
+
+setTimeout(callback, 1000);
+
+console.log('D');
+// What actually happened: Same as my prediction. It seems that JavaScript doesn't wait for the setTimeout method to finish, it carries on evaluating the following lines and asyncronously runs the setTimeout method.
