@@ -40,3 +40,23 @@ setTimeout(callback, 1000);
 
 console.log('D');
 // What actually happened: Same as my prediction. It seems that JavaScript doesn't wait for the setTimeout method to finish, it carries on evaluating the following lines and asyncronously runs the setTimeout method.
+
+
+//4.
+//Prediction: A will be console logged
+//            C will be console logged
+//            D will be console logged
+//            B will be console logged
+// I predict D will be logged before B, as although the timeout is 0 (thus should be instantly executed), I am making the assumption that the setTimeout method will still take a little more time to execute than simply using console.log, therefore whilst setTimeout is being executed, D will be logged.
+console.log('A')
+
+var callback = function() {
+	console.log('B')
+}
+
+console.log('C')
+
+setTimeout(callback, 0)
+
+console.log('D')
+// What actually happened: Same as my prediction. Why? See here under 'order of operations': https://riptutorial.com/javascript/example/6819/settimeout--order-of-operations--cleartimeout. It seems if we call a setTimeout before a console.log it effectively pushing the setTimeout execution to the 'end of the queue', despite having a 'delay' of 0.
