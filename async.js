@@ -99,3 +99,13 @@ var callback = function() {
 };
 setTimeout(callback, 0);
 // What actually happened: See prediction.
+
+
+// 8.
+// Prediction: After a 2 second delay, the function will stop executing, and return 'hello'.
+
+var callback = function() {
+  return "hello";
+};
+setTimeout(callback, 2000);
+// What actually happened: Nothing was printed in the console, but I think this is because we are not using console.log. I will try to get more visibility to understand what's happening here, and do some research.
