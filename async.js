@@ -16,3 +16,12 @@ setTimeout(function() {
   console.log('hello');
 }, 1000);
 //What actually happened: The setTimeout() method invoked my function after a delay of 1000 milliseconds (1 second).
+
+
+//2.
+// Prediction: Same to the previous explanation. However this time we set our function as the value of the 'callback' variable, and pass in this variable as the first argument and the specified timeout as the second argument. I think this improves encapsulation and SRP.
+var callback = function() {
+  console.log('hello');
+};
+setTimeout(callback, 1000);
+// What actually happened: Same as before: the setTimeout() method invoked my function after a delay of 1000 milliseconds (1 second).
