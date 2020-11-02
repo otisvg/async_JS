@@ -63,7 +63,7 @@ console.log('D');
 
 
 //5.
-//Prediction: the console.log(a) will return 10, as our setTimeout will be executed roughly 1 second AFTER our console.log, thus the value of a will still be 10 when we log a. Also. similar to assesment 4. I believe even if the timeout was specifeid as 0 milliseconds, it would still return 10 as the timeout is pushed the the end of the execution queue.
+//Prediction: the console.log(a) will return 10, as our setTimeout will be executed roughly 1 second AFTER our console.log, thus the value of a will still be 10 when we log a
 var a = 10;
 
 var callback = function() {
@@ -74,3 +74,15 @@ setTimeout(callback, 1000);
 
 console.log(a);
 // What actually happened: Same as my prediction.
+
+// 6.
+//Prediction: Even with the timeout specified as 0 milliseconds, I predict the console.log to still return 10 as the timeout is pushed the the end of the execution queue.
+var a = 10;
+
+var callback = function() {
+  a = 20;
+};
+setTimeout(callback, 0);
+
+console.log(a);
+//What actually happened: See prediction.
